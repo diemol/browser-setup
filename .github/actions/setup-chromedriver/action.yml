@@ -7,11 +7,17 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - name: Setup Chrome
+    - name: Install Chrome
       uses: browser-actions/setup-chrome@latest
       with:
         chrome-version: ${{ inputs.version }}
-    - run: |
+    - name: Setup Chrome Path
+      shell: bash
+      run: |
+        chrome --version
+        echo "CHROME_PATH=$(which chrome)" >> $GITHUB_ENV
+    - name: Setup ChromeDriver Chrome
+      run: |
         sudo mv chrome /usr/bin/google-chrome
         wget -q https://github.com/bonigarcia/webdrivermanager/releases/download/webdrivermanager-5.1.0/webdrivermanager-5.1.0-fat.jar
         java -jar webdrivermanager-5.1.0-fat.jar resolveDriverFor chrome

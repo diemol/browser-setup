@@ -9,7 +9,7 @@ runs:
   using: "composite"
   steps:
     - run: |
-        wget -q -O - https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
+        wget -q -O - https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
         echo "deb https://packages.microsoft.com/repos/edge stable main" >> /etc/apt/sources.list.d/microsoft-edge.list
         sudo apt-get update -qqy
         sudo apt-get -qqy install microsoft-edge-stable

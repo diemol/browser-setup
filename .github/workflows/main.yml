@@ -36,7 +36,9 @@ jobs:
           chrome-version: stable
       
       - name: Display Chrome version
-        run: chrome --version
+        run: |
+          chrome --version
+          which chrome
 
       - name: Setup ChromeDriver
         uses: ./.github/actions/setup-chromedriver

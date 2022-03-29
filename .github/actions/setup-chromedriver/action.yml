@@ -18,7 +18,7 @@ runs:
         echo "CHROME_PATH=$(which chrome)" >> $GITHUB_ENV
     - name: Setup ChromeDriver Chrome
       run: |
-        sudo mv chrome /usr/bin/google-chrome
+        sudo mv $(which chrome) /usr/bin/google-chrome
         wget -q https://github.com/bonigarcia/webdrivermanager/releases/download/webdrivermanager-5.1.0/webdrivermanager-5.1.0-fat.jar
         java -jar webdrivermanager-5.1.0-fat.jar resolveDriverFor chrome
         sudo mv chromedriver /usr/bin/chromedriver

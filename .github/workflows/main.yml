@@ -44,6 +44,9 @@ jobs:
       - name: Display ChromeDriver version
         run: chromedriver --version
 
+      - name: Display Google Chrome version (after)
+        run: google-chrome --version
+
   beta:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest

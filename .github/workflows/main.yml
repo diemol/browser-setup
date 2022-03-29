@@ -24,6 +24,12 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
+      - name: Display Chrome version (before)
+        run: chrome --version
+
+      - name: Display ChromeDriver version (before)
+        run: chromedriver --version
+
       - name: Setup Chrome Stable
         uses: browser-actions/setup-chrome@latest
         with:

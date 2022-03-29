@@ -1,11 +1,15 @@
 name: 'Setup ChromeDriver'
 description: 'Setup ChromeDriver via WebDriverManager'
+inputs:
+  path:
+    description: 'Chrome binary path'
+    required: true
 runs:
   using: "composite"
   steps:
     - run: |
-        wget https://github.com/bonigarcia/webdrivermanager/releases/download/webdrivermanager-5.1.0/webdrivermanager-5.1.0-fat.jar
-        mv chrome /usr/bin/google-chrome
+        mv "${{ inputs.path }}" /usr/bin/google-chrome
+        wget -q https://github.com/bonigarcia/webdrivermanager/releases/download/webdrivermanager-5.1.0/webdrivermanager-5.1.0-fat.jar
         java -jar webdrivermanager-5.1.0-fat.jar resolveDriverFor chrome
         chromedriver --version
       shell: bash

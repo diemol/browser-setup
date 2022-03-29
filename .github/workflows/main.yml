@@ -32,12 +32,11 @@ jobs:
       - name: Display Chrome version
         run: |
           chrome --version
-          echo "CHROME_PATH=$(which chrome)" >> $GITHUB_ENV          
 
       - name: Setup ChromeDriver
         uses: ./.github/actions/setup-chromedriver
         with:
-          path: ${CHROME_PATH}
+          path: $(which chrome)
 
       - name: Display ChromeDriver version
         run: chromedriver --version

@@ -31,7 +31,7 @@ jobs:
       
       - name: Display Chrome version
         run: |
-          chrome --version
+          google-chrome --version
 
       - name: Display ChromeDriver version
         run: chromedriver --version
@@ -52,7 +52,7 @@ jobs:
       
       - name: Display Chrome version
         run: |
-          chrome --version
+          google-chrome --version
 
       - name: Display ChromeDriver version
         run: chromedriver --version

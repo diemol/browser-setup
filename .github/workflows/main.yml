@@ -24,12 +24,6 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
-      - name: Display Chrome version (before)
-        run: google-chrome --version
-
-      - name: Display ChromeDriver version (before)
-        run: chromedriver --version
-
       - name: Setup Chrome Stable
         uses: browser-actions/setup-chrome@latest
         with:
@@ -48,9 +42,6 @@ jobs:
       - name: Display ChromeDriver version
         run: chromedriver --version
 
-      - name: Display Google Chrome version (after)
-        run: google-chrome --version
-
   beta:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
@@ -66,10 +57,14 @@ jobs:
           chrome-version: beta
       
       - name: Display Chrome version
-        run: chrome --version
+        run: |
+          chrome --version
+          echo "CHROME_PATH=$(which chrome)" >> $GITHUB_ENV          
 
       - name: Setup ChromeDriver
         uses: ./.github/actions/setup-chromedriver
+        with:
+          path: ${CHROME_PATH}
 
       - name: Display ChromeDriver version
         run: chromedriver --version
@@ -89,10 +84,14 @@ jobs:
           chrome-version: dev
       
       - name: Display Chrome version
-        run: chrome --version
+        run: |
+          chrome --version
+          echo "CHROME_PATH=$(which chrome)" >> $GITHUB_ENV          
 
       - name: Setup ChromeDriver
         uses: ./.github/actions/setup-chromedriver
+        with:
+          path: ${CHROME_PATH}
 
       - name: Display ChromeDriver version
         run: chromedriver --version

@@ -33,7 +33,7 @@ echo "Listing 100 largest packages"
 dpkg-query -Wf '${Installed-Size}\t${Package}\n' | sort -n | tail -n 100
 df -h
 echo "Removing large packages"
-# sudo apt-get remove -y '^dotnet-.*'
+sudo apt-get remove -y '^dotnet-.*'
 sudo apt-get remove -y '^llvm-.*'
 sudo apt-get remove -y 'php.*'
 sudo apt-get remove -y '^mongodb-.*'
@@ -43,14 +43,15 @@ sudo apt-get autoremove -y
 sudo apt-get clean
 df -h
 bazel --version
+whereis bazel
 echo "Removing large directories"
 
-# sudo rm -rf /usr/share/dotnet/
+sudo rm -rf /usr/share/dotnet/
 sudo rm -rf /usr/local/graalvm/
-# sudo rm -rf /usr/local/.ghcup/
+sudo rm -rf /usr/local/.ghcup/
 sudo rm -rf /usr/local/share/powershell
 # sudo rm -rf /usr/local/share/chromium
 sudo rm -rf /usr/local/lib/android
-sudo rm -rf /usr/local/lib/node_modules
+# sudo rm -rf /usr/local/lib/node_modules
 df -h
 bazel --version

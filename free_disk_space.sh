@@ -42,13 +42,13 @@ sudo apt-get remove -y azure-cli google-cloud-sdk hhvm powershell mono-devel lib
 sudo apt-get autoremove -y
 sudo apt-get clean
 df -h
-# echo "Removing large directories"
+echo "Removing large directories"
 
-# sudo rm -rf /usr/share/dotnet/
-# sudo rm -rf /usr/local/graalvm/
-# sudo rm -rf /usr/local/.ghcup/
-# sudo rm -rf /usr/local/share/powershell
-# sudo rm -rf /usr/local/share/chromium
-# sudo rm -rf /usr/local/lib/android
-# sudo rm -rf /usr/local/lib/node_modules
-# df -h
+sudo rm -rf /usr/share/dotnet/
+sudo rm -rf /usr/local/graalvm/
+sudo rm -rf /usr/local/.ghcup/
+sudo rm -rf /usr/local/share/powershell
+sudo rm -rf /usr/local/share/chromium
+sudo rm -rf /usr/local/lib/android
+sudo rm -rf /usr/local/lib/node_modules
+df -h

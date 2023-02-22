@@ -23,7 +23,7 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Free disk space
-        run: chmod +x free_disk_space.sh && ./free_disk_space.sh
+        run: pwd && ls -lah
 
   stable:
     # The type of runner that the job will run on

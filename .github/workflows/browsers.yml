@@ -11,18 +11,22 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: browser-actions/setup-chrome@v1
+        name: Chrome Stable
         with:
           chrome-version: "stable"
         if: matrix.browser == 'chrome'
       - uses: browser-actions/setup-edge@v1
+        name: Edge Stable
         if: matrix.browser == 'edge'
         with:
           edge-version: "stable"
       - uses: browser-actions/setup-chrome@v1
+        name: Chrome Beta
         with:
           chrome-version: "beta"
         if: matrix.browser == 'chrome'
       - uses: browser-actions/setup-edge@v1
+        name: Edge Beta
         if: matrix.browser == 'edge'
         with:
           edge-version: "beta"
@@ -35,18 +39,22 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: browser-actions/setup-chrome@v1
+        name: Chrome Stable      
         with:
           chrome-version: "stable"
         if: matrix.browser == 'chrome'
       - uses: browser-actions/setup-edge@v1
+        name: Edge Stable      
         if: matrix.browser == 'edge'
         with:
           edge-version: "stable"
       - uses: browser-actions/setup-chrome@v1
+        name: Chrome Beta
         with:
           chrome-version: "beta"
         if: matrix.browser == 'chrome'
       - uses: browser-actions/setup-edge@v1
+        name: Edge Beta
         if: matrix.browser == 'edge'
         with:
           edge-version: "beta"
@@ -59,18 +67,22 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: browser-actions/setup-chrome@v1
+        name: Chrome Stable      
         with:
           chrome-version: "stable"
         if: matrix.browser == 'chrome'
       - uses: browser-actions/setup-edge@v1
+        name: Edge Stable      
         if: matrix.browser == 'edge'
         with:
           edge-version: "stable"
       - uses: browser-actions/setup-chrome@v1
+        name: Chrome Beta
         with:
           chrome-version: "beta"
         if: matrix.browser == 'chrome'
       - uses: browser-actions/setup-edge@v1
+        name: Edge Beta
         if: matrix.browser == 'edge'
         with:
           edge-version: "beta"

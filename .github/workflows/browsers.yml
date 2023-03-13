@@ -3,10 +3,10 @@ on:
   workflow_dispatch:  
 
 jobs:
-  build:
+  windows:
     strategy:
       matrix:
-        browser: [chrome, firefox, edge]
+        browser: [chrome, edge]
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v2
@@ -27,4 +27,51 @@ jobs:
         with:
           edge-version: "beta"
 
+  ubuntu:
+    strategy:
+      matrix:
+        browser: [chrome, edge]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: browser-actions/setup-chrome@v1
+        with:
+          chrome-version: "stable"
+        if: matrix.browser == 'chrome'
+      - uses: browser-actions/setup-edge@v1
+        if: matrix.browser == 'edge'
+        with:
+          edge-version: "stable"
+      - uses: browser-actions/setup-chrome@v1
+        with:
+          chrome-version: "beta"
+        if: matrix.browser == 'chrome'
+      - uses: browser-actions/setup-edge@v1
+        if: matrix.browser == 'edge'
+        with:
+          edge-version: "beta"
+
+  macos:
+    strategy:
+      matrix:
+        browser: [chrome, edge]
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: browser-actions/setup-chrome@v1
+        with:
+          chrome-version: "stable"
+        if: matrix.browser == 'chrome'
+      - uses: browser-actions/setup-edge@v1
+        if: matrix.browser == 'edge'
+        with:
+          edge-version: "stable"
+      - uses: browser-actions/setup-chrome@v1
+        with:
+          chrome-version: "beta"
+        if: matrix.browser == 'chrome'
+      - uses: browser-actions/setup-edge@v1
+        if: matrix.browser == 'edge'
+        with:
+          edge-version: "beta"
   
